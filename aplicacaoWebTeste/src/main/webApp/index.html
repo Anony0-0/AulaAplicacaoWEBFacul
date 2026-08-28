@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurante da Silva</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,500;0,600;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+
+<!-- Alternador de tema em CSS puro (sem JavaScript), usando :has() -->
+<input type="checkbox" id="modo-claro" class="alternador-input">
+<label for="modo-claro" class="alternador-tema" aria-label="Alternar entre tema claro e escuro">
+        <span class="alternador-icone alternador-sol" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4.2"/><g stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><line x1="12" y1="1.5" x2="12" y2="4.5"/><line x1="12" y1="19.5" x2="12" y2="22.5"/><line x1="1.5" y1="12" x2="4.5" y2="12"/><line x1="19.5" y1="12" x2="22.5" y2="12"/><line x1="4.4" y1="4.4" x2="6.5" y2="6.5"/><line x1="17.5" y1="17.5" x2="19.6" y2="19.6"/><line x1="4.4" y1="19.6" x2="6.5" y2="17.5"/><line x1="17.5" y1="6.5" x2="19.6" y2="4.4"/></g></svg>
+        </span>
+    <span class="alternador-bolinha"></span>
+    <span class="alternador-icone alternador-lua" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a6.8 6.8 0 0 0 10.5 10.5Z"/></svg>
+        </span>
+</label>
+
+<header>
+    <div class="logo">
+        <a href="#inicio" class="logo-nome">Restaurante da Silva</a>
+    </div>
+
+    <div class="formulario">
+        <form>
+            <div class="campo">
+                <label for="usuario">Usuário</label>
+                <input id="usuario" name="usuario" type="text" size="16" autocomplete="username">
+            </div>
+
+            <div class="campo">
+                <label for="senha">Senha</label>
+                <input id="senha" name="senha" type="password" size="16" autocomplete="current-password">
+            </div>
+
+            <input class="botao-entrar" type="submit" value="Entrar">
+            <a class="link-cadastro" href="cadastro.html">Cadastre-se</a>
+        </form>
+    </div>
+</header>
+
+<nav>
+    <ul>
+        <li><a href="#cardapio">Cardápio</a></li>
+        <li><a href="#vinhos">Vinhos</a></li>
+        <li><a href="#sobre">Sobre nós</a></li>
+        <li><a href="#reservas">Reservas</a></li>
+    </ul>
+</nav>
+
+<main>
+
+    <!-- ---------- HERO ---------- -->
+    <section class="hero" id="inicio">
+        <div class="hero-conteudo">
+            <p class="eyebrow">Cozinha autoral &middot; desde 1998</p>
+            <h1>Sabor de família,<br> à luz de velas.</h1>
+            <p class="hero-texto">
+                Pratos preparados com ingredientes selecionados e receitas
+                que atravessam gerações. Reserve sua mesa e viva uma noite
+                memorável.
+            </p>
+            <a class="cta" href="#reservas">Reservar uma mesa</a>
+        </div>
+
+        <div class="hero-ilustracao" aria-hidden="true">
+            <svg viewBox="0 0 320 320" class="ilustracao-prato-grande">
+                <circle cx="160" cy="160" r="150" class="prato-aro" />
+                <circle cx="160" cy="160" r="112" class="prato-face" />
+                <path class="prato-garnish" d="M110 150c10-24 34-38 58-32 20 5 30 24 24 40-16-6-30 2-34 16-14-8-22-2-30 10-10-14-22-20-18-34Z" />
+                <circle cx="182" cy="128" r="5" class="prato-detalhe" />
+                <circle cx="200" cy="150" r="3" class="prato-detalhe" />
+            </svg>
+        </div>
+    </section>
+
+    <!-- ---------- CARDÁPIO ---------- -->
+    <section class="secao secao-cardapio" id="cardapio">
+        <p class="eyebrow eyebrow-centro">Selecionados pelo chef</p>
+        <h2 class="titulo-secao">Pratos em destaque</h2>
+
+        <div class="grade grade-3">
+
+            <article class="cartao">
+                <div class="cartao-imagem">
+                    <svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="46" class="ilus-fundo"/><circle cx="50" cy="50" r="30" class="ilus-prato"/><path d="M34 52c4-12 16-19 28-15 9 3 13 12 10 19-7-3-14 1-16 8-7-4-11-1-15 5-6-7-11-11-7-17Z" class="ilus-comida"/></svg>
+                </div>
+                <h3>Risoto de Funghi</h3>
+                <p>Arbóreo cremoso, cogumelos selvagens e lascas de parmesão envelhecido.</p>
+                <span class="preco">R$ 68</span>
+            </article>
+
+            <article class="cartao">
+                <div class="cartao-imagem">
+                    <svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="46" class="ilus-fundo"/><circle cx="50" cy="50" r="30" class="ilus-prato"/><rect x="34" y="42" width="32" height="18" rx="6" class="ilus-comida"/><path d="M34 40c4-6 28-6 32 0" class="ilus-traco"/></svg>
+                </div>
+                <h3>Filé ao Molho de Vinho</h3>
+                <p>Mignon grelhado no ponto, redução de vinho tinto e legumes salteados.</p>
+                <span class="preco">R$ 96</span>
+            </article>
+
+            <article class="cartao">
+                <div class="cartao-imagem">
+                    <svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="46" class="ilus-fundo"/><circle cx="50" cy="50" r="30" class="ilus-prato"/><path d="M32 50c8-10 28-10 36 0-4 10-10 14-18 14s-14-4-18-14Z" class="ilus-comida"/><line x1="50" y1="36" x2="50" y2="44" class="ilus-traco"/></svg>
+                </div>
+                <h3>Salmão Grelhado</h3>
+                <p>Posta de salmão selada, purê de mandioquinha e aspargos na manteiga.</p>
+                <span class="preco">R$ 84</span>
+            </article>
+
+        </div>
+    </section>
+
+    <!-- ---------- VINHOS ---------- -->
+    <section class="secao secao-vinhos" id="vinhos">
+        <p class="eyebrow eyebrow-centro">Adega selecionada</p>
+        <h2 class="titulo-secao">Vinhos da casa</h2>
+        <p class="secao-texto-centro">
+            Uma carta pensada a dedo, com rótulos nacionais e importados
+            para harmonizar com cada prato do cardápio.
+        </p>
+
+        <div class="grade grade-3">
+
+            <article class="cartao cartao-vinho">
+                <div class="cartao-imagem">
+                    <svg viewBox="0 0 100 100"><path d="M40 12h20l-2 26c8 6 12 14 12 24 0 15-11 24-20 24s-20-9-20-24c0-10 4-18 12-24Z" class="ilus-taca"/><path d="M40 30c4 6 16 6 20 0" class="ilus-vinho"/><line x1="50" y1="86" x2="50" y2="94" class="ilus-traco"/><line x1="40" y1="94" x2="60" y2="94" class="ilus-traco"/></svg>
+                </div>
+                <h3>Malbec Reserva</h3>
+                <p>Argentina &middot; encorpado, notas de ameixa e especiarias.</p>
+            </article>
+
+            <article class="cartao cartao-vinho">
+                <div class="cartao-imagem">
+                    <svg viewBox="0 0 100 100"><path d="M40 12h20l-2 26c8 6 12 14 12 24 0 15-11 24-20 24s-20-9-20-24c0-10 4-18 12-24Z" class="ilus-taca"/><path d="M40 34c4 4 16 4 20 0" class="ilus-vinho-branco"/><line x1="50" y1="86" x2="50" y2="94" class="ilus-traco"/><line x1="40" y1="94" x2="60" y2="94" class="ilus-traco"/></svg>
+                </div>
+                <h3>Chardonnay</h3>
+                <p>Serra Gaúcha &middot; leve, fresco, notas cítricas.</p>
+            </article>
+
+            <article class="cartao cartao-vinho">
+                <div class="cartao-imagem">
+                    <svg viewBox="0 0 100 100"><path d="M40 12h20l-2 26c8 6 12 14 12 24 0 15-11 24-20 24s-20-9-20-24c0-10 4-18 12-24Z" class="ilus-taca"/><path d="M40 28c4 8 16 8 20 0" class="ilus-vinho"/><line x1="50" y1="86" x2="50" y2="94" class="ilus-traco"/><line x1="40" y1="94" x2="60" y2="94" class="ilus-traco"/></svg>
+                </div>
+                <h3>Cabernet Sauvignon</h3>
+                <p>Chile &middot; intenso, taninos macios, final longo.</p>
+            </article>
+
+        </div>
+    </section>
+
+    <!-- ---------- SOBRE ---------- -->
+    <section class="secao secao-sobre" id="sobre">
+        <div class="sobre-texto">
+            <p class="eyebrow">Nossa história</p>
+            <h2 class="titulo-secao titulo-esquerda">Tradição em cada detalhe</h2>
+            <p>
+                Desde 1998, a família Silva recebe seus convidados com receitas
+                passadas de geração em geração. Cada prato nasce de ingredientes
+                frescos, técnica apurada e, acima de tudo, muito carinho.
+            </p>
+            <p>
+                Nosso salão foi pensado para noites tranquilas: luz baixa,
+                velas na mesa e um serviço atencioso do início ao fim.
+            </p>
+        </div>
+
+        <div class="sobre-ilustracao" aria-hidden="true">
+            <svg viewBox="0 0 200 200">
+                <rect x="20" y="150" width="160" height="10" rx="4" class="ilus-mesa"/>
+                <rect x="94" y="90" width="12" height="60" rx="3" class="ilus-vela"/>
+                <path d="M100 90c-8 0-14-6-14-13 0-9 14-24 14-24s14 15 14 24c0 7-6 13-14 13Z" class="ilus-chama"/>
+                <circle cx="60" cy="140" r="14" class="ilus-prato-mesa"/>
+                <circle cx="140" cy="140" r="14" class="ilus-prato-mesa"/>
+            </svg>
+        </div>
+    </section>
+
+    <!-- ---------- RESERVAS ---------- -->
+    <section class="secao secao-reservas" id="reservas">
+        <div class="reservas-caixa">
+            <p class="eyebrow eyebrow-centro">Reserve sua mesa</p>
+            <h2 class="titulo-secao">Vamos preparar a sua noite</h2>
+
+            <form class="form-reservas">
+                <div class="campo">
+                    <label for="nome">Nome</label>
+                    <input id="nome" type="text" placeholder="Seu nome completo">
+                </div>
+                <div class="campo">
+                    <label for="data">Data</label>
+                    <input id="data" type="date">
+                </div>
+                <div class="campo">
+                    <label for="pessoas">Pessoas</label>
+                    <input id="pessoas" type="number" min="1" max="20" value="2">
+                </div>
+                <input class="cta cta-form" type="submit" value="Confirmar reserva">
+            </form>
+        </div>
+    </section>
+
+</main>
+
+<footer>
+    <div class="rodape-coluna">
+        <h2>Restaurante da Silva</h2>
+        <p>Rua das Palmeiras, 123 &mdash; Centro</p>
+        <p>São Paulo &mdash; SP</p>
+    </div>
+
+    <div class="rodape-coluna">
+        <h2>Horário</h2>
+        <p>Terça a domingo</p>
+        <p>18h às 23h30</p>
+    </div>
+
+    <div class="rodape-coluna">
+        <h2>Contato</h2>
+        <p>(11) 4002-8922</p>
+        <p>contato@restaurantedasilva.com.br</p>
+    </div>
+
+    <p class="copyright">&copy; 2026 Restaurante da Silva. Todos os direitos reservados.</p>
+</footer>
+
+</body>
+</html>

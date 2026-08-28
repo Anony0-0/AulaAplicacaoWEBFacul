@@ -1,0 +1,638 @@
+/* ==========================================================
+   Restaurante da Silva — tema escuro/claro, layout imersivo
+   ========================================================== */
+
+:root {
+    /* ---- tema escuro (padrão) ---- */
+    --bg: #15110d;
+    --bg-elevado: #1e1811;
+    --bg-elevado-2: #241c14;
+    --dourado: #c9a24b;
+    --dourado-claro: #e3c775;
+    --vinho: #5e1a20;
+    --texto: #f2e8d8;
+    --texto-suave: #b9ac97;
+    --borda: #352a1d;
+    --sombra: rgba(0, 0, 0, 0.45);
+
+    --fonte-logo: 'Great Vibes', cursive;
+    --fonte-titulo: 'Playfair Display', 'Georgia', serif;
+    --fonte-texto: 'Manrope', 'Segoe UI', sans-serif;
+}
+
+/* ---- tema claro: ativado via checkbox + :has() (sem JS) ---- */
+body:has(#modo-claro:checked) {
+    --bg: #f7f0e2;
+    --bg-elevado: #ffffff;
+    --bg-elevado-2: #f0e4c8;
+    --dourado: #a97e2f;
+    --dourado-claro: #8a6423;
+    --vinho: #7a2430;
+    --texto: #2b2015;
+    --texto-suave: #6b5c46;
+    --borda: #e3d5b8;
+    --sombra: rgba(43, 32, 21, 0.12);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    background-color: var(--bg);
+    color: var(--texto);
+    font-family: var(--fonte-texto);
+    line-height: 1.6;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+img, svg {
+    display: block;
+    max-width: 100%;
+}
+
+/* ---------- alternador de tema ---------- */
+
+.alternador-input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+}
+
+.alternador-tema {
+    position: fixed;
+    top: 18px;
+    right: 24px;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    width: 62px;
+    height: 32px;
+    padding: 0 6px;
+    border-radius: 999px;
+    background-color: var(--bg-elevado);
+    border: 1px solid var(--borda);
+    box-shadow: 0 4px 14px var(--sombra);
+    cursor: pointer;
+}
+
+.alternador-icone {
+    display: flex;
+    width: 14px;
+    height: 14px;
+    color: var(--texto-suave);
+}
+
+.alternador-icone svg {
+    width: 100%;
+    height: 100%;
+    fill: currentColor;
+}
+
+.alternador-bolinha {
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background-color: var(--dourado);
+    transition: transform 0.25s ease;
+}
+
+.alternador-input:checked ~ .alternador-tema .alternador-bolinha {
+    transform: translateX(30px);
+}
+
+.alternador-input:focus-visible ~ .alternador-tema {
+    outline: 2px solid var(--dourado);
+    outline-offset: 2px;
+}
+
+/* ---------- layout geral ---------- */
+
+.container,
+header,
+nav > ul,
+main > section > .hero-conteudo,
+main > section .grade,
+.secao-sobre,
+.reservas-caixa,
+.cadastro-caixa,
+footer {
+    width: 92%;
+    max-width: 1320px;
+    margin: 0 auto;
+}
+
+header, nav {
+    width: 100%;
+}
+
+/* ---------- cabeçalho ---------- */
+
+header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 22px 0;
+    border-bottom: 1px solid var(--borda);
+}
+
+.logo-nome {
+    font-family: var(--fonte-logo);
+    font-size: 2.4rem;
+    line-height: 1;
+    color: var(--dourado-claro);
+    letter-spacing: 0.02em;
+}
+
+header .formulario {
+    flex: 0 1 auto;
+}
+
+header form {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    gap: 12px;
+}
+
+.campo {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.campo label {
+    font-size: 0.75rem;
+    color: var(--texto-suave);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+}
+
+.campo input {
+    background-color: var(--bg-elevado);
+    border: 1px solid var(--borda);
+    border-radius: 6px;
+    padding: 8px 10px;
+    color: var(--texto);
+    font-family: var(--fonte-texto);
+    font-size: 0.9rem;
+}
+
+.campo input:focus {
+    outline: 2px solid var(--dourado);
+    outline-offset: 1px;
+    border-color: var(--dourado);
+}
+
+.botao-entrar {
+    background-color: var(--dourado);
+    color: #201a0f;
+    border: none;
+    border-radius: 6px;
+    padding: 9px 18px;
+    font-family: var(--fonte-texto);
+    font-weight: 700;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.botao-entrar:hover,
+.botao-entrar:focus-visible {
+    background-color: var(--dourado-claro);
+}
+
+.link-cadastro {
+    font-size: 0.85rem;
+    color: var(--texto-suave);
+    border-bottom: 1px solid transparent;
+    padding-bottom: 2px;
+}
+
+.link-cadastro:hover,
+.link-cadastro:focus-visible {
+    color: var(--dourado);
+    border-bottom-color: var(--dourado);
+}
+
+/* ---------- navegação ---------- */
+
+nav {
+    background-color: var(--bg-elevado);
+    border-bottom: 1px solid var(--borda);
+    position: sticky;
+    top: 0;
+    z-index: 500;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+    margin: 0;
+    padding: 14px 0;
+}
+
+nav a {
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--texto-suave);
+    padding-bottom: 4px;
+    border-bottom: 1px solid transparent;
+    transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+nav a:hover,
+nav a:focus-visible {
+    color: var(--dourado);
+    border-bottom-color: var(--dourado);
+}
+
+/* ---------- hero (altura total da página) ---------- */
+
+.hero {
+    width: 100%;
+    min-height: calc(100vh - 130px);
+    display: flex;
+    align-items: center;
+    background:
+        radial-gradient(circle at 80% 30%, var(--bg-elevado-2) 0%, transparent 55%),
+        var(--bg);
+}
+
+.hero-conteudo {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 48px;
+}
+
+.hero-conteudo > .eyebrow,
+.hero-conteudo > h1,
+.hero-conteudo > .hero-texto,
+.hero-conteudo > .cta {
+    flex-basis: 100%;
+    max-width: 620px;
+}
+
+.eyebrow {
+    margin: 0 0 12px;
+    font-size: 0.8rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--dourado);
+}
+
+.eyebrow-centro {
+    text-align: center;
+}
+
+.hero h1 {
+    font-family: var(--fonte-titulo);
+    font-weight: 600;
+    font-size: clamp(2.4rem, 5vw, 3.8rem);
+    line-height: 1.15;
+    margin: 0 0 20px;
+    color: var(--texto);
+}
+
+.hero-texto {
+    color: var(--texto-suave);
+    font-size: 1.05rem;
+    margin: 0 0 32px;
+    max-width: 46ch;
+}
+
+.cta {
+    display: inline-block;
+    background-color: var(--vinho);
+    color: var(--texto);
+    border: 1px solid var(--dourado);
+    border-radius: 6px;
+    padding: 12px 28px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: background-color 0.2s ease, transform 0.2s ease, color 0.2s ease;
+}
+
+.cta:hover,
+.cta:focus-visible {
+    background-color: var(--dourado);
+    color: #201a0f;
+    transform: translateY(-2px);
+}
+
+.hero-ilustracao {
+    flex: 1 1 260px;
+    display: flex;
+    justify-content: center;
+}
+
+.ilustracao-prato-grande {
+    width: min(360px, 80vw);
+    height: auto;
+    filter: drop-shadow(0 20px 40px var(--sombra));
+}
+
+.prato-aro { fill: var(--bg-elevado-2); stroke: var(--dourado); stroke-width: 2; }
+.prato-face { fill: var(--bg-elevado); }
+.prato-garnish { fill: var(--vinho); opacity: 0.85; }
+.prato-detalhe { fill: var(--dourado); }
+
+/* ---------- seções gerais ---------- */
+
+.secao {
+    width: 100%;
+    padding: 96px 0;
+}
+
+.secao-cardapio { background-color: var(--bg); }
+.secao-vinhos { background-color: var(--bg-elevado); }
+.secao-sobre { background-color: var(--bg); }
+.secao-reservas { background-color: var(--bg-elevado); }
+
+.titulo-secao {
+    font-family: var(--fonte-titulo);
+    font-weight: 600;
+    font-size: clamp(1.8rem, 3vw, 2.4rem);
+    text-align: center;
+    margin: 0 0 48px;
+    color: var(--texto);
+}
+
+.titulo-esquerda {
+    text-align: left;
+    margin-bottom: 24px;
+}
+
+.secao-texto-centro {
+    max-width: 60ch;
+    margin: -24px auto 48px;
+    text-align: center;
+    color: var(--texto-suave);
+}
+
+/* ---------- grades de cartões ---------- */
+
+.grade {
+    display: grid;
+    gap: 28px;
+}
+
+.grade-3 {
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+.cartao {
+    background-color: var(--bg-elevado);
+    border: 1px solid var(--borda);
+    border-radius: 12px;
+    padding: 28px;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.cartao:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 18px 32px var(--sombra);
+}
+
+.cartao-imagem {
+    width: 84px;
+    height: 84px;
+    margin: 0 auto 20px;
+}
+
+.cartao h3 {
+    font-family: var(--fonte-titulo);
+    font-size: 1.2rem;
+    margin: 0 0 8px;
+    text-align: center;
+    color: var(--texto);
+}
+
+.cartao p {
+    color: var(--texto-suave);
+    font-size: 0.92rem;
+    text-align: center;
+    margin: 0 0 14px;
+}
+
+.preco {
+    display: block;
+    text-align: center;
+    color: var(--dourado);
+    font-weight: 700;
+    font-size: 1rem;
+}
+
+.ilus-fundo { fill: var(--bg-elevado-2); }
+.ilus-prato { fill: var(--bg); stroke: var(--dourado); stroke-width: 1.5; }
+.ilus-comida { fill: var(--vinho); }
+.ilus-traco { stroke: var(--dourado); stroke-width: 2; stroke-linecap: round; fill: none; }
+
+.ilus-taca { fill: var(--bg-elevado-2); stroke: var(--dourado); stroke-width: 2; }
+.ilus-vinho { fill: var(--vinho); }
+.ilus-vinho-branco { fill: var(--dourado-claro); opacity: 0.6; }
+
+/* ---------- sobre ---------- */
+
+.secao-sobre {
+    display: flex;
+    justify-content: center;
+}
+
+.secao-sobre > .container,
+.secao-sobre {
+    max-width: 1320px;
+}
+
+.secao-sobre {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 56px;
+}
+
+.sobre-texto,
+.sobre-ilustracao {
+    flex: 1 1 380px;
+    max-width: 620px;
+    margin: 0 auto;
+}
+
+.sobre-texto p {
+    color: var(--texto-suave);
+}
+
+.sobre-ilustracao svg {
+    width: min(320px, 70vw);
+    margin: 0 auto;
+}
+
+.ilus-mesa { fill: var(--bg-elevado-2); }
+.ilus-vela { fill: var(--dourado-claro); }
+.ilus-chama { fill: var(--vinho); }
+.ilus-prato-mesa { fill: none; stroke: var(--dourado); stroke-width: 2; }
+
+/* ---------- reservas ---------- */
+
+.secao-reservas {
+    display: flex;
+    justify-content: center;
+}
+
+.reservas-caixa {
+    max-width: 720px;
+    text-align: center;
+}
+
+.form-reservas {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 18px;
+    margin-top: 12px;
+}
+
+.form-reservas .campo {
+    text-align: left;
+}
+
+.cta-form {
+    border: 1px solid var(--dourado);
+    cursor: pointer;
+    font-family: var(--fonte-texto);
+}
+
+/* ---------- cadastro ---------- */
+
+.secao-cadastro {
+    display: flex;
+    justify-content: center;
+    background-color: var(--bg);
+    min-height: calc(100vh - 130px);
+    align-items: center;
+}
+
+.cadastro-caixa {
+    max-width: 480px;
+    width: 100%;
+    text-align: center;
+    background-color: var(--bg-elevado);
+    border: 1px solid var(--borda);
+    border-radius: 14px;
+    padding: 48px 40px;
+    box-shadow: 0 20px 40px var(--sombra);
+}
+
+.form-cadastro {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    margin-top: 24px;
+    text-align: left;
+}
+
+.form-cadastro .campo input {
+    width: 100%;
+}
+
+.cta-cadastro {
+    width: 100%;
+    text-align: center;
+    margin-top: 6px;
+}
+
+.cadastro-rodape {
+    margin-top: 24px;
+    font-size: 0.9rem;
+    color: var(--texto-suave);
+}
+
+/* ---------- rodapé ---------- */
+
+footer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px;
+    padding: 48px 0 28px;
+    border-top: 1px solid var(--borda);
+    color: var(--texto-suave);
+}
+
+.rodape-coluna {
+    flex: 1 1 200px;
+}
+
+.rodape-coluna h2 {
+    font-family: var(--fonte-titulo);
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--dourado-claro);
+    margin: 0 0 10px;
+}
+
+.rodape-coluna p {
+    margin: 0 0 4px;
+    font-size: 0.9rem;
+}
+
+.copyright {
+    flex-basis: 100%;
+    margin: 16px 0 0;
+    padding-top: 16px;
+    border-top: 1px solid var(--borda);
+    font-size: 0.78rem;
+    text-align: center;
+    color: var(--texto-suave);
+}
+
+/* ---------- responsivo ---------- */
+
+@media (max-width: 640px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    header form {
+        width: 100%;
+    }
+
+    nav ul {
+        gap: 18px;
+    }
+
+    .secao {
+        padding: 64px 0;
+    }
+
+    .alternador-tema {
+        top: 12px;
+        right: 12px;
+    }
+}

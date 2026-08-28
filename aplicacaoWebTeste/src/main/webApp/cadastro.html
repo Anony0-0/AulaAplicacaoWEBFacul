@@ -2,9 +2,126 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>Tela de Cadastro</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastre-se — Restaurante da Silva</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,500;0,600;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="estilos.css">
 </head>
 <body>
+
+<!-- Alternador de tema em CSS puro (sem JavaScript), usando :has() -->
+<input type="checkbox" id="modo-claro" class="alternador-input">
+<label for="modo-claro" class="alternador-tema" aria-label="Alternar entre tema claro e escuro">
+        <span class="alternador-icone alternador-sol" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4.2"/><g stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><line x1="12" y1="1.5" x2="12" y2="4.5"/><line x1="12" y1="19.5" x2="12" y2="22.5"/><line x1="1.5" y1="12" x2="4.5" y2="12"/><line x1="19.5" y1="12" x2="22.5" y2="12"/><line x1="4.4" y1="4.4" x2="6.5" y2="6.5"/><line x1="17.5" y1="17.5" x2="19.6" y2="19.6"/><line x1="4.4" y1="19.6" x2="6.5" y2="17.5"/><line x1="17.5" y1="6.5" x2="19.6" y2="4.4"/></g></svg>
+        </span>
+    <span class="alternador-bolinha"></span>
+    <span class="alternador-icone alternador-lua" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a6.8 6.8 0 0 0 10.5 10.5Z"/></svg>
+        </span>
+</label>
+
+<header>
+    <div class="logo">
+        <a href="index.html" class="logo-nome">Restaurante da Silva</a>
+    </div>
+
+    <div class="formulario">
+        <form>
+            <div class="campo">
+                <label for="usuario">Usuário</label>
+                <input id="usuario" name="usuario" type="text" size="16" autocomplete="username">
+            </div>
+
+            <div class="campo">
+                <label for="senha-login">Senha</label>
+                <input id="senha-login" name="senha-login" type="password" size="16" autocomplete="current-password">
+            </div>
+
+            <input class="botao-entrar" type="submit" value="Entrar">
+            <a class="link-cadastro" href="cadastro.html">Cadastre-se</a>
+        </form>
+    </div>
+</header>
+
+<nav>
+    <ul>
+        <li><a href="index.html#cardapio">Cardápio</a></li>
+        <li><a href="index.html#vinhos">Vinhos</a></li>
+        <li><a href="index.html#sobre">Sobre nós</a></li>
+        <li><a href="index.html#reservas">Reservas</a></li>
+    </ul>
+</nav>
+
+<main>
+    <section class="secao secao-cadastro">
+        <div class="cadastro-caixa">
+            <p class="eyebrow eyebrow-centro">Junte-se à nossa casa</p>
+            <h1 class="titulo-secao">Crie sua conta</h1>
+            <p class="secao-texto-centro">
+                Cadastre-se para fazer reservas com mais agilidade e
+                acompanhar as novidades do nosso cardápio.
+            </p>
+
+            <form class="form-cadastro" action="cadastro.jsp" method="post">>
+                <div class="campoNome">
+                    <label for="nome">Nome completo</label>
+                    <input id="nome" name="nome" type="text" placeholder="Seu nome completo" autocomplete="name" required>
+                </div>
+
+                <div class="cEmail">
+                    <label for="email">E-mail</label>
+                    <input id="email" name="email" type="email" placeholder="seuemail@exemplo.com" autocomplete="email" required>
+                </div>
+
+                <div class="cSenha">
+                    <label for="senha">Senha</label>
+                    <input id="senha" name="senha" type="password" placeholder="Crie uma senha" autocomplete="new-password" minlength="8" required>
+                </div>
+
+                <div class="cSenhaConf">
+                    <label for="repetir-senha">Repetir senha</label>
+                    <input id="repetir-senha" name="repetir-senha" type="password" placeholder="Digite a senha novamente" autocomplete="new-password" minlength="6" required>
+                </div>
+
+                <div class="cTelefone">
+                    <label for="telefone">Telefone</label>
+                    <input id="telefone" name="telefone" type="number" placeholder="Seu telefone" autocomplete="new-password" minlength="9" required>
+                </div>
+
+                <input class="cta cta-form cta-cadastro" type="submit" value="Criar minha conta">
+            </form>
+
+            <p class="cadastro-rodape">
+                <a class="link-cadastro" href="index.html">Já tenho conta</a>
+            </p>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div class="rodape-coluna">
+        <h2>Restaurante da Silva</h2>
+        <p>Rua das Palmeiras, 123 &mdash; Centro</p>
+        <p>São Paulo &mdash; SP</p>
+    </div>
+
+    <div class="rodape-coluna">
+        <h2>Horário</h2>
+        <p>Terça a domingo</p>
+        <p>18h às 23h30</p>
+    </div>
+
+    <div class="rodape-coluna">
+        <h2>Contato</h2>
+        <p>(11) 4002-8922</p>
+        <p>contato@restaurantedasilva.com.br</p>
+    </div>
+
+    <p class="copyright">&copy; 2026 Restaurante da Silva. Todos os direitos reservados.</p>
+</footer>
 
 </body>
 </html>
