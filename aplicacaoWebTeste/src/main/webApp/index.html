@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Restaurante da Silva</title>
+    <title>Biblioteca da Silva</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,500;0,600;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..700&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="estilos.css">
 </head>
 <body>
@@ -23,171 +23,235 @@
         </span>
 </label>
 
-<header>
+<header class="topo">
     <div class="logo">
-        <a href="#inicio" class="logo-nome">Restaurante da Silva</a>
+        <a href="#inicio" class="logo-nome">Biblioteca da Silva</a>
     </div>
 
-    <div class="formulario">
-        <form>
-            <div class="campo">
-                <label for="usuario">Usuário</label>
-                <input id="usuario" name="usuario" type="text" size="16" autocomplete="username">
-            </div>
+    <nav aria-label="Principal">
+        <ul>
+            <li><a href="#acervo">Acervo</a></li>
+            <li><a href="#colecoes">Coleções</a></li>
+            <li><a href="#sobre">Sobre nós</a></li>
+            <li><a href="#reservas">Reservas</a></li>
+        </ul>
+    </nav>
 
-            <div class="campo">
-                <label for="senha">Senha</label>
-                <input id="senha" name="senha" type="password" size="16" autocomplete="current-password">
-            </div>
+    <div class="topo-acoes">
+        <details class="entrar">
+            <summary>Entrar</summary>
+            <form class="entrar-form">
+                <div class="campo">
+                    <label for="usuario">Usuário</label>
+                    <input id="usuario" name="usuario" type="text" autocomplete="username">
+                </div>
 
-            <input class="botao-entrar" type="submit" value="Entrar">
-            <a class="link-cadastro" href="cadastro.html">Cadastre-se</a>
-        </form>
+                <div class="campo">
+                    <label for="senha">Senha</label>
+                    <input id="senha" name="senha" type="password" autocomplete="current-password">
+                </div>
+
+                <input class="botao-entrar" type="submit" value="Entrar">
+            </form>
+        </details>
+        <a class="cta cta-pequeno" href="cadastro.html">Cadastre-se</a>
     </div>
 </header>
-
-<nav>
-    <ul>
-        <li><a href="#cardapio">Cardápio</a></li>
-        <li><a href="#vinhos">Vinhos</a></li>
-        <li><a href="#sobre">Sobre nós</a></li>
-        <li><a href="#reservas">Reservas</a></li>
-    </ul>
-</nav>
 
 <main>
 
     <!-- ---------- HERO ---------- -->
     <section class="hero" id="inicio">
-        <div class="hero-conteudo">
-            <p class="eyebrow">Cozinha autoral &middot; desde 1998</p>
-            <h1>Sabor de família,<br> à luz de velas.</h1>
+        <div class="hero-topo miolo">
+            <h1>Seu próximo livro já está na estante.</h1>
             <p class="hero-texto">
-                Pratos preparados com ingredientes selecionados e receitas
-                que atravessam gerações. Reserve sua mesa e viva uma noite
-                memorável.
+                Pesquise no acervo, reserve pelo site e retire no balcão.
+                As salas de leitura abrem de segunda a sábado.
             </p>
-            <a class="cta" href="#reservas">Reservar uma mesa</a>
+
+            <form class="busca" role="search">
+                <label class="so-leitor" for="busca">Buscar livros</label>
+                <input id="busca" name="busca" type="search" placeholder="Título, autor ou assunto">
+                <input class="cta" type="submit" value="Buscar">
+            </form>
         </div>
 
-        <div class="hero-ilustracao" aria-hidden="true">
-            <svg viewBox="0 0 320 320" class="ilustracao-prato-grande">
-                <circle cx="160" cy="160" r="150" class="prato-aro" />
-                <circle cx="160" cy="160" r="112" class="prato-face" />
-                <path class="prato-garnish" d="M110 150c10-24 34-38 58-32 20 5 30 24 24 40-16-6-30 2-34 16-14-8-22-2-30 10-10-14-22-20-18-34Z" />
-                <circle cx="182" cy="128" r="5" class="prato-detalhe" />
-                <circle cx="200" cy="150" r="3" class="prato-detalhe" />
-            </svg>
-        </div>
-    </section>
-
-    <!-- ---------- CARDÁPIO ---------- -->
-    <section class="secao secao-cardapio" id="cardapio">
-        <p class="eyebrow eyebrow-centro">Selecionados pelo chef</p>
-        <h2 class="titulo-secao">Pratos em destaque</h2>
-
-        <div class="grade grade-3">
-
-            <article class="cartao">
-                <div class="cartao-imagem">
-                    <svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="46" class="ilus-fundo"/><circle cx="50" cy="50" r="30" class="ilus-prato"/><path d="M34 52c4-12 16-19 28-15 9 3 13 12 10 19-7-3-14 1-16 8-7-4-11-1-15 5-6-7-11-11-7-17Z" class="ilus-comida"/></svg>
-                </div>
-                <h3>Risoto de Funghi</h3>
-                <p>Arbóreo cremoso, cogumelos selvagens e lascas de parmesão envelhecido.</p>
-                <span class="preco">R$ 68</span>
-            </article>
-
-            <article class="cartao">
-                <div class="cartao-imagem">
-                    <svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="46" class="ilus-fundo"/><circle cx="50" cy="50" r="30" class="ilus-prato"/><rect x="34" y="42" width="32" height="18" rx="6" class="ilus-comida"/><path d="M34 40c4-6 28-6 32 0" class="ilus-traco"/></svg>
-                </div>
-                <h3>Filé ao Molho de Vinho</h3>
-                <p>Mignon grelhado no ponto, redução de vinho tinto e legumes salteados.</p>
-                <span class="preco">R$ 96</span>
-            </article>
-
-            <article class="cartao">
-                <div class="cartao-imagem">
-                    <svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="46" class="ilus-fundo"/><circle cx="50" cy="50" r="30" class="ilus-prato"/><path d="M32 50c8-10 28-10 36 0-4 10-10 14-18 14s-14-4-18-14Z" class="ilus-comida"/><line x1="50" y1="36" x2="50" y2="44" class="ilus-traco"/></svg>
-                </div>
-                <h3>Salmão Grelhado</h3>
-                <p>Posta de salmão selada, purê de mandioquinha e aspargos na manteiga.</p>
-                <span class="preco">R$ 84</span>
-            </article>
-
+        <div class="estante">
+            <ul class="lombadas" aria-label="Alguns títulos do nosso acervo">
+                <li><a class="lombada" href="#acervo" style="--w:42px;--h:210px;--cor:#1f3d31" aria-label="Dom Casmurro"><span>Dom Casmurro</span></a></li>
+                <li><a class="lombada" href="#acervo" style="--w:50px;--h:250px;--cor:#6d2630" aria-label="Memórias Póstumas"><span>Memórias Póstumas</span></a></li>
+                <li><a class="lombada" href="#acervo" style="--w:38px;--h:200px;--cor:#1d2c46" aria-label="O Cortiço"><span>O Cortiço</span></a></li>
+                <li><a class="lombada" href="#acervo" style="--w:46px;--h:236px;--cor:#8a5a2b" aria-label="Vidas Secas"><span>Vidas Secas</span></a></li>
+                <li><a class="lombada" href="#acervo" style="--w:40px;--h:196px;--cor:#3a4a2e" aria-label="Iracema"><span>Iracema</span></a></li>
+                <li><a class="lombada" href="#acervo" style="--w:52px;--h:258px;--cor:#4a2a3e" aria-label="Capitães da Areia"><span>Capitães da Areia</span></a></li>
+                <li><a class="lombada" href="#acervo" style="--w:44px;--h:222px;--cor:#2c4a52" aria-label="Grande Sertão"><span>Grande Sertão</span></a></li>
+                <li><a class="lombada" href="#acervo" style="--w:38px;--h:204px;--cor:#8d6d27" aria-label="Macunaíma"><span>Macunaíma</span></a></li>
+                <li><a class="lombada" href="#acervo" style="--w:48px;--h:244px;--cor:#1f3d31" aria-label="A Hora da Estrela"><span>A Hora da Estrela</span></a></li>
+                <li><a class="lombada" href="#acervo" style="--w:40px;--h:198px;--cor:#6d2630" aria-label="Sagarana"><span>Sagarana</span></a></li>
+                <li><a class="lombada" href="#acervo" style="--w:46px;--h:230px;--cor:#1d2c46" aria-label="Quincas Borba"><span>Quincas Borba</span></a></li>
+                <li><a class="lombada" href="#acervo" style="--w:42px;--h:206px;--cor:#4a2a3e" aria-label="O Guarani"><span>O Guarani</span></a></li>
+                <li><a class="lombada" href="#acervo" style="--w:50px;--h:240px;--cor:#3a4a2e" aria-label="Lucíola"><span>Lucíola</span></a></li>
+                <li><a class="lombada" href="#acervo" style="--w:40px;--h:212px;--cor:#8a5a2b" aria-label="Senhora"><span>Senhora</span></a></li>
+            </ul>
+            <div class="tabua" aria-hidden="true"></div>
         </div>
     </section>
 
-    <!-- ---------- VINHOS ---------- -->
-    <section class="secao secao-vinhos" id="vinhos">
-        <p class="eyebrow eyebrow-centro">Adega selecionada</p>
-        <h2 class="titulo-secao">Vinhos da casa</h2>
-        <p class="secao-texto-centro">
-            Uma carta pensada a dedo, com rótulos nacionais e importados
-            para harmonizar com cada prato do cardápio.
-        </p>
+    <!-- ---------- ACERVO ---------- -->
+    <section class="secao secao-acervo" id="acervo">
+        <div class="miolo">
+            <div class="cabecalho-secao">
+                <h2 class="titulo-grande">Livros em destaque</h2>
+                <p>Escolhidos pelos bibliotecários para esta semana.</p>
+            </div>
 
-        <div class="grade grade-3">
+            <div class="capas">
 
-            <article class="cartao cartao-vinho">
-                <div class="cartao-imagem">
-                    <svg viewBox="0 0 100 100"><path d="M40 12h20l-2 26c8 6 12 14 12 24 0 15-11 24-20 24s-20-9-20-24c0-10 4-18 12-24Z" class="ilus-taca"/><path d="M40 30c4 6 16 6 20 0" class="ilus-vinho"/><line x1="50" y1="86" x2="50" y2="94" class="ilus-traco"/><line x1="40" y1="94" x2="60" y2="94" class="ilus-traco"/></svg>
-                </div>
-                <h3>Malbec Reserva</h3>
-                <p>Argentina &middot; encorpado, notas de ameixa e especiarias.</p>
-            </article>
+                <article class="livro">
+                    <div class="capa capa-1">
+                        <div>
+                            <h3>Dom Casmurro</h3>
+                            <p class="capa-autor">Machado de Assis</p>
+                        </div>
+                        <span class="capa-ornamento" aria-hidden="true"></span>
+                    </div>
+                    <p class="livro-resumo">Bentinho conta a própria história e deixa ao leitor a pergunta que o romance nunca responde.</p>
+                    <div class="livro-rodape">
+                        <span class="situacao situacao-livre">Disponível</span>
+                        <a class="link-reservar" href="#reservas">Reservar</a>
+                    </div>
+                </article>
 
-            <article class="cartao cartao-vinho">
-                <div class="cartao-imagem">
-                    <svg viewBox="0 0 100 100"><path d="M40 12h20l-2 26c8 6 12 14 12 24 0 15-11 24-20 24s-20-9-20-24c0-10 4-18 12-24Z" class="ilus-taca"/><path d="M40 34c4 4 16 4 20 0" class="ilus-vinho-branco"/><line x1="50" y1="86" x2="50" y2="94" class="ilus-traco"/><line x1="40" y1="94" x2="60" y2="94" class="ilus-traco"/></svg>
-                </div>
-                <h3>Chardonnay</h3>
-                <p>Serra Gaúcha &middot; leve, fresco, notas cítricas.</p>
-            </article>
+                <article class="livro">
+                    <div class="capa capa-2">
+                        <div>
+                            <h3>O Cortiço</h3>
+                            <p class="capa-autor">Aluísio Azevedo</p>
+                        </div>
+                        <span class="capa-ornamento" aria-hidden="true"></span>
+                    </div>
+                    <p class="livro-resumo">Retrato de um cortiço do Rio de Janeiro no século XIX, com seus moradores e suas ambições.</p>
+                    <div class="livro-rodape">
+                        <span class="situacao situacao-livre">Disponível</span>
+                        <a class="link-reservar" href="#reservas">Reservar</a>
+                    </div>
+                </article>
 
-            <article class="cartao cartao-vinho">
-                <div class="cartao-imagem">
-                    <svg viewBox="0 0 100 100"><path d="M40 12h20l-2 26c8 6 12 14 12 24 0 15-11 24-20 24s-20-9-20-24c0-10 4-18 12-24Z" class="ilus-taca"/><path d="M40 28c4 8 16 8 20 0" class="ilus-vinho"/><line x1="50" y1="86" x2="50" y2="94" class="ilus-traco"/><line x1="40" y1="94" x2="60" y2="94" class="ilus-traco"/></svg>
-                </div>
-                <h3>Cabernet Sauvignon</h3>
-                <p>Chile &middot; intenso, taninos macios, final longo.</p>
-            </article>
+                <article class="livro">
+                    <div class="capa capa-3">
+                        <div>
+                            <h3>Vidas Secas</h3>
+                            <p class="capa-autor">Graciliano Ramos</p>
+                        </div>
+                        <span class="capa-ornamento" aria-hidden="true"></span>
+                    </div>
+                    <p class="livro-resumo">A travessia de uma família de retirantes pelo sertão, contada em capítulos curtos e secos.</p>
+                    <div class="livro-rodape">
+                        <span class="situacao situacao-emprestado">Emprestado até 28/10</span>
+                        <a class="link-reservar" href="#reservas">Reservar</a>
+                    </div>
+                </article>
 
+                <article class="livro">
+                    <div class="capa capa-4">
+                        <div>
+                            <h3>Memórias Póstumas de Brás Cubas</h3>
+                            <p class="capa-autor">Machado de Assis</p>
+                        </div>
+                        <span class="capa-ornamento" aria-hidden="true"></span>
+                    </div>
+                    <p class="livro-resumo">Um defunto autor narra a vida de trás para a frente, com ironia e sem pressa.</p>
+                    <div class="livro-rodape">
+                        <span class="situacao situacao-livre">Disponível</span>
+                        <a class="link-reservar" href="#reservas">Reservar</a>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ---------- COLEÇÕES ---------- -->
+    <section class="secao secao-colecoes" id="colecoes">
+        <div class="miolo">
+            <div class="cabecalho-secao">
+                <h2 class="titulo-grande">Nossas coleções</h2>
+                <p>Cada coleção tem sua sala e sua estante. Pergunte no balcão por onde começar.</p>
+            </div>
+
+            <div class="bento">
+
+                <article class="bento-item bento-grande">
+                    <svg class="icone" viewBox="0 0 36 36" aria-hidden="true"><rect x="6" y="8" width="7" height="22" rx="1"/><rect x="15" y="5" width="7" height="25" rx="1"/><path d="M25 10l6 1.6-5.4 19.4-6-1.6z"/></svg>
+                    <h3>Literatura Brasileira</h3>
+                    <p>Romances, contos e poesia, dos clássicos do século XIX aos autores contemporâneos.</p>
+                </article>
+
+                <article class="bento-item">
+                    <svg class="icone" viewBox="0 0 36 36" aria-hidden="true"><circle cx="18" cy="18" r="12"/><ellipse cx="18" cy="18" rx="5" ry="12"/><path d="M6 18h24M8 11h20M8 25h20"/></svg>
+                    <h3>História e Geografia</h3>
+                    <p>Atlas, crônicas e estudos sobre o Brasil e o mundo, com mapas antigos para consulta.</p>
+                </article>
+
+                <article class="bento-item">
+                    <svg class="icone" viewBox="0 0 36 36" aria-hidden="true"><rect x="8" y="5" width="20" height="26" rx="2"/><path d="M8 17h20"/><circle cx="18" cy="17" r="2.5"/></svg>
+                    <h3>Obras Raras</h3>
+                    <p>Primeiras edições e livros antigos. A consulta é feita na sala de leitura, com um bibliotecário.</p>
+                </article>
+
+            </div>
         </div>
     </section>
 
     <!-- ---------- SOBRE ---------- -->
     <section class="secao secao-sobre" id="sobre">
-        <div class="sobre-texto">
-            <p class="eyebrow">Nossa história</p>
-            <h2 class="titulo-secao titulo-esquerda">Tradição em cada detalhe</h2>
-            <p>
-                Desde 1998, a família Silva recebe seus convidados com receitas
-                passadas de geração em geração. Cada prato nasce de ingredientes
-                frescos, técnica apurada e, acima de tudo, muito carinho.
-            </p>
-            <p>
-                Nosso salão foi pensado para noites tranquilas: luz baixa,
-                velas na mesa e um serviço atencioso do início ao fim.
-            </p>
-        </div>
+        <div class="sobre-grade miolo">
+            <div class="sobre-texto">
+                <h2 class="titulo-grande">Uma casa feita de livros</h2>
+                <p>
+                    A Biblioteca da Silva abriu as portas em 1952, com poucas estantes
+                    e uma coleção doada por moradores do bairro. Desde então, o acervo
+                    cresceu com a ajuda de leitores que continuam trazendo seus livros.
+                </p>
+                <p>
+                    Mantemos o salão como sempre foi: mesas de madeira, luz baixa
+                    e silêncio. Venha ler por uma tarde ou leve um livro para casa.
+                </p>
+            </div>
 
-        <div class="sobre-ilustracao" aria-hidden="true">
-            <svg viewBox="0 0 200 200">
-                <rect x="20" y="150" width="160" height="10" rx="4" class="ilus-mesa"/>
-                <rect x="94" y="90" width="12" height="60" rx="3" class="ilus-vela"/>
-                <path d="M100 90c-8 0-14-6-14-13 0-9 14-24 14-24s14 15 14 24c0 7-6 13-14 13Z" class="ilus-chama"/>
-                <circle cx="60" cy="140" r="14" class="ilus-prato-mesa"/>
-                <circle cx="140" cy="140" r="14" class="ilus-prato-mesa"/>
-            </svg>
+            <div class="passos-caixa">
+                <h3>Como pegar um livro emprestado</h3>
+                <ol class="passos">
+                    <li>
+                        <div>
+                            <h4>Reserve pelo site</h4>
+                            <p>Escolha o título e a data de retirada no formulário de reservas.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <h4>Retire no balcão</h4>
+                            <p>Mostre seu cadastro e leve o exemplar que separamos para você.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <h4>Devolva em até 14 dias</h4>
+                            <p>A devolução é feita no balcão, no mesmo horário de funcionamento.</p>
+                        </div>
+                    </li>
+                </ol>
+            </div>
         </div>
     </section>
 
     <!-- ---------- RESERVAS ---------- -->
     <section class="secao secao-reservas" id="reservas">
-        <div class="reservas-caixa">
-            <p class="eyebrow eyebrow-centro">Reserve sua mesa</p>
-            <h2 class="titulo-secao">Vamos preparar a sua noite</h2>
+        <div class="reservas-grade miolo">
+            <div class="reservas-texto">
+                <h2 class="titulo-grande">Reserve e retire no balcão</h2>
+                <p>Informe o título e o dia em que quer buscar. Separamos o exemplar e guardamos para você.</p>
+            </div>
 
             <form class="form-reservas">
                 <div class="campo">
@@ -195,12 +259,12 @@
                     <input id="nome" type="text" placeholder="Seu nome completo">
                 </div>
                 <div class="campo">
-                    <label for="data">Data</label>
-                    <input id="data" type="date">
+                    <label for="livro">Título do livro</label>
+                    <input id="livro" type="text" placeholder="Ex.: Dom Casmurro">
                 </div>
                 <div class="campo">
-                    <label for="pessoas">Pessoas</label>
-                    <input id="pessoas" type="number" min="1" max="20" value="2">
+                    <label for="data">Data de retirada</label>
+                    <input id="data" type="date">
                 </div>
                 <input class="cta cta-form" type="submit" value="Confirmar reserva">
             </form>
@@ -211,24 +275,24 @@
 
 <footer>
     <div class="rodape-coluna">
-        <h2>Restaurante da Silva</h2>
+        <h2>Biblioteca da Silva</h2>
         <p>Rua das Palmeiras, 123 &mdash; Centro</p>
         <p>São Paulo &mdash; SP</p>
     </div>
 
     <div class="rodape-coluna">
         <h2>Horário</h2>
-        <p>Terça a domingo</p>
-        <p>18h às 23h30</p>
+        <p>Segunda a sábado</p>
+        <p>9h às 19h</p>
     </div>
 
     <div class="rodape-coluna">
         <h2>Contato</h2>
         <p>(11) 4002-8922</p>
-        <p>contato@restaurantedasilva.com.br</p>
+        <p>contato@bibliotecadasilva.com.br</p>
     </div>
 
-    <p class="copyright">&copy; 2026 Restaurante da Silva. Todos os direitos reservados.</p>
+    <p class="copyright">&copy; 2026 Biblioteca da Silva. Todos os direitos reservados.</p>
 </footer>
 
 </body>
